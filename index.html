@@ -6,7 +6,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=Archivo:wght@700;800&family=Cormorant+Garamond:ital,wght@1,400;1,500&display=swap">
 <style>
-/* Alter Ego: misma tienda que Vis ta Vie, con la identidad del local (rojo, negro y gris cemento; logo y titulares en Archivo en mayúscula; portada en bloque cemento sin foto).
+/* Alter Ego: misma tienda que Vis ta Vie, con la identidad del local (rojo, negro y gris cemento; logo y titulares en Archivo en mayúscula; portada con foto y velo oscuro).
    Layout: tienda minimal en blanco y negro. Cinta negra de avisos que corre, logo centrado en minúscula, menú en mayúsculas chicas, portada en tono nude con frase en minúscula y cursiva, grilla de 2 (celu) a 4 columnas, carrito lateral. Una sola estética clara, a propósito. */
 :root {
   color-scheme: light;
@@ -58,14 +58,16 @@ nav.menu button { background: none; border: 0; padding: 4px 0; cursor: pointer; 
 nav.menu button:hover, nav.menu button[aria-current="true"] { border-bottom-color: var(--ink); }
 
 /* Portada */
-.portada { position: relative; background: var(--cemento) radial-gradient(rgb(0 0 0 / .07) 1px, transparent 1.2px) 0 0 / 7px 7px; color: var(--ink); overflow: hidden; border-bottom: 6px solid var(--rojo); }
-.portada::after { content: "ALTER EGO"; position: absolute; right: -0.06em; bottom: -0.22em; font-family: "Archivo", sans-serif; font-weight: 800; font-size: clamp(5rem, 19vw, 17rem); line-height: 1; letter-spacing: -.03em; color: rgb(0 0 0 / .07); pointer-events: none; white-space: nowrap; }
+.portada { position: relative; background: #111 url(img/portada.jpg) 60% 22% / cover no-repeat; color: #fff; overflow: hidden; border-bottom: 6px solid var(--rojo); }
+.portada::before { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgb(0 0 0 / .78) 0%, rgb(0 0 0 / .45) 50%, rgb(0 0 0 / .05) 100%); pointer-events: none; }
+@media (max-width: 640px) { .portada { background-position: 62% 30%; } .portada::before { background: linear-gradient(180deg, rgb(0 0 0 / .25) 0%, rgb(0 0 0 / .7) 100%); } }
+.portada::after { content: "ALTER EGO"; position: absolute; right: -0.06em; bottom: -0.22em; font-family: "Archivo", sans-serif; font-weight: 800; font-size: clamp(5rem, 19vw, 17rem); line-height: 1; letter-spacing: -.03em; color: rgb(255 255 255 / .08); pointer-events: none; white-space: nowrap; }
 .portada .in { position: relative; z-index: 1; min-height: min(560px, 70vh); display: grid; align-content: center; justify-items: start; text-align: left; padding-block: 64px; }
-.portada h1 { margin: 0; font-family: "Archivo", sans-serif; font-weight: 800; font-size: clamp(2.6rem, 8vw, 5.6rem); line-height: .95; letter-spacing: -.02em; text-transform: uppercase; text-wrap: balance; }
+.portada h1 { text-shadow: 0 2px 18px rgb(0 0 0 / .45); margin: 0; font-family: "Archivo", sans-serif; font-weight: 800; font-size: clamp(2.6rem, 8vw, 5.6rem); line-height: .95; letter-spacing: -.02em; text-transform: uppercase; text-wrap: balance; }
 .portada h1 em { color: var(--rojo); font-family: var(--f-serif); font-weight: 400; text-transform: lowercase; letter-spacing: 0; font-size: 1.05em; }
-.portada p { margin: 18px 0 26px; max-width: 42ch; color: #2b2a28; }
-.portada .btn { background: var(--ink); color: #fff; border-color: var(--ink); }
-.portada .btn:hover { background: var(--rojo); border-color: var(--rojo); }
+.portada p { margin: 18px 0 26px; max-width: 42ch; color: #e9e7e3; text-shadow: 0 1px 8px rgb(0 0 0 / .5); }
+.portada .btn { background: var(--rojo); color: #fff; border-color: var(--rojo); }
+.portada .btn:hover { background: #fff; color: var(--ink); border-color: #fff; }
 .btn { display: inline-block; border: 1px solid var(--ink); background: var(--ink); color: var(--bg); padding: 13px 34px; cursor: pointer; text-decoration: none; text-transform: uppercase; letter-spacing: .16em; font-size: .72rem; font-weight: 500; }
 .btn.claro { background: transparent; color: var(--ink); }
 .btn[disabled] { opacity: .4; cursor: default; }
